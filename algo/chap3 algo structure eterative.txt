@@ -1,0 +1,94 @@
+Algorithm exercice2
+Var x,n,i
+Debut
+ecrire("entre x")
+lire(x)
+ecrire("entre n")
+lire(n)
+pour i de 1 a n faire:
+    x<<<<<<<x*x
+fin pour
+ecrire("resultat : ",x)
+
+Algorithm exercice3
+Var n,
+Debut
+
+
+
+Algorithm exercice5
+Var n,i,j
+Debut
+lire(n)
+pour i de 1 a n faire:
+    pour j de 1 a n faire:
+        ecrire("*")
+    fin pour
+    ecrire("\n")
+fin pour
+fin
+
+Algorithm exercice6
+Var n,i,resultat
+Debut
+i<<<<<<<0
+lire(n)
+pour i de n/2 a n faire:
+    si(n%i==2):
+        resultat<<<<<<<1
+    fin si
+fin pour
+si (resultat==1):
+    ecrire("not prime")
+sinon:
+ecrire("prime")
+fin
+
+Algorithm exercice7
+Var n,i,num
+Debut
+n<<<<<<<20
+i<<<<<<<0
+lire(num)
+pour i de 1 a n faire:
+    repeter
+        lire(num)
+    jusqua num%2==0
+    ecrire("cest le nombre numero",i)
+fin pour
+fin
+
+Algorithm exercice8
+Var n,i,num,con
+Debut
+con<<<<<<<1
+n<<<<<<<20
+i<<<<<<<0
+lire(num)
+repeter:
+    repeter:
+        lire(num)
+    jusqua num%2==0
+    ecrire("cest le nombre numero",i)
+    ecrire("ajouter un autre nombre ? oui:1 non:2")
+    lire(con)
+jusqua con==0
+fin pour
+fin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

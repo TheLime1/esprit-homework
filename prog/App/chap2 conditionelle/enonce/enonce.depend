@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1664465886 source:c:\users\g i e\desktop\esprit\prog\app\chap2 conditionelle\enonce\main.c
+	<stdio.h>
+	<stdlib.h>
+

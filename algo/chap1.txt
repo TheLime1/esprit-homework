@@ -1,0 +1,62 @@
+Algorithme exercice 5
+Variable a,b,Y,X: entier
+Debut
+lire(a)
+lire(b)
+Y<====(a)
+X<=====(b)
+b<======(Y)
+a<======(X)
+fin
+
+
+Algorithme exercice 6
+Variable x,y,t=reel
+Debut
+x<=====2t
+y<=====3t²/-4t
+fin
+
+
+Algorithme exercice 7
+Variable T,h,min,sec:entier
+Debut
+lire(T)
+h<====T div 60
+min<===== T mod 60
+min <==== min div 60
+sec <==== min mod 60
+sec <==== sec div 60
+ecrire("T=",T,"second"===,h,"heures",min,"minutes",sec,seconds)
+fin
+
+
+Algorithme exercice 8
+Variable rayon,surface,perimetre,pi : reel
+Debut
+pi<======(3.14)
+lire(rayon)
+surface<=======pi*rayon**2
+perimetre<=========2*pi*rayon
+ecrire(surface)
+ecrire(perimetre)
+fin
+
+
+Algorithme exercice 9
+Variable salaire_fixe,nbr_vente,total : entier
+Debut
+lire(salaire_fixe)
+lire(nbr_vente)
+total<=====(salaire_fixe*(nbr_vente*(5%))+10%)
+ecrire(total)
+fin
+
+
+Algorithme exercice 10
+Variable TF,TK,Tc : reel
+Debut
+lire(TF)
+Tc<========(TF-32)*1.8
+TK<=========(Tc+273)
+ecrire(TK)

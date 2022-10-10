@@ -1,0 +1,125 @@
+Algorithm exercice1
+Type
+    Tab=tableau[1..20] de type entier
+Var
+    T:tab
+    i,n,total:entier
+Debut
+n<<<<<<20
+pour i de 1 a n faire:
+    lire(num)
+    T[i]<<<<<<<num
+    total=total+num
+fin pour
+ecrire("total= ",total)
+fin
+
+
+Algorithm exercice3
+Type
+    Tab=tableau[1..20] de type entier
+Var
+    T:tab
+    i,n,total,min,max:entier
+    avg:reel
+Debut
+n<<<<<<20
+min<<<<<999999
+max<<<<<0
+pour i de 1 a n faire:
+    lire(num)
+    T[i]<<<<<<<num
+    total=total+num
+    si min>T[i] alors:
+        min<<<<<<<T[i]
+    fin si
+    si max<T[i] alors:
+        max<<<<<<<T[i]
+    fi si
+fin pour
+avg<<<<<<<<total/n
+ecrire("total= ",total)
+ecrire("min= ",min)
+ecrire("max= ",max)
+ecrire("avg= ",avg)
+fin
+
+
+Algorithm exercice6
+Type
+    Tab=tableau[] de type caractere
+Var
+    T:tab
+    i,n:entier
+    c:caractere
+Debut
+lire(n)
+pour i de 1 a n faire:
+    lire(c)
+    T[i]<<<<<<<c
+fin pour
+T[i]<<<<<<<<T[n]
+pour i de 2 a n-2 faire:
+    T[i]<<<<<<T[i+1]
+fin pour
+
+
+
+Algorithm exercice II
+Type
+    Tab=tableau[1..20] de type entier
+Var
+    T:tab
+    i,n,rech,j,rechI,rechJ,trace,REtrace,MAXtrace,MAXretrace,ULTMAX:entier
+Debut
+MAXtrace<<<<<<0
+MAXretrace<<<<<<0
+trace<<<<<<0
+REtrace<<<<<<<0
+n<<<<<<20
+pour i de 1 a n faire:
+    pour j de 1 a n faire:
+        lire(num)
+        T[i,j]<<<<<<<num
+    fin pour
+fin pour
+lire(rech)
+pour i de 1 a n faire:
+    pour j de 1 a n faire:
+        si T[i,j]==rech
+            rechI<<<<<<i
+            rechJ<<<<<<j
+        fin si
+    fin pour
+fin pour
+ecrire("element dans:["rechI,":",rechJ,"]")
+pour i de 1 a n faire:
+    trace<<<<<T[i,i]+trace
+    si T[i,i]>MAXtrace:
+        MAXtrace<<<<<<<T[i,i]
+    fin si
+fin pour
+ecrire(trace)
+pour i de n a 1 faire[pas:-1]:
+    REtrace<<<<<T[i,i]+REtrace
+    si T[i,i]>MAXretrace:
+        MAXretrace<<<<<<<T[i,i]
+    fin si
+fin pour
+ecrire(trace+REtrace)
+si MAXretrace>MAXretrace:
+    ULTMAX<<<<<<<MAXretrace
+sinon: ULTMAX<<<<<<<MAXtrace
+fi si
+fin
+
+
+
+
+
+
+
+
+
+
+
