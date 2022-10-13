@@ -150,7 +150,7 @@ int main()
                 }
             }
         }
-    case 0:
+    case 4:
         printf(":/");
         break;
     default:
