@@ -3,7 +3,8 @@
 
 int main()
 {
-    int n = 5, i, T[n][n], rech, irech, j;
+    int n = 3, i, T[10][10], rech, irech, j;
+
     irech = 0;
     for (i = 0; i < n; i++)
     {
@@ -11,8 +12,6 @@ int main()
         {
             printf("entrez un nombre");
             scanf("%d", &T[i][j]);
-            printf("\n");
-            printf("%d", i);
             printf("\n");
         }
     }
@@ -41,5 +40,6 @@ int main()
             printf("%d", T[i][j]);
             printf("\t");
         }
+        printf("\n");
     }
 }
