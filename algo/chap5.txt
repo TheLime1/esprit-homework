@@ -1,0 +1,99 @@
+// QUESTION 1
+
+algorithme tri
+type Tabch=tableau[1..100]de caracteres
+variable n, i, NMAX, min, temp, x, mil :entier
+c : caractere
+T:Tab
+
+debut
+repeter
+	ecrire("tapez le nombre de case:")
+	lire(n)
+jusqu'à(n > 0 et n <= NMAX)
+pour i allant de 1 à n faire
+	ecrire("tapez T[",i,"]
+	lire(T[i])
+fin pour
+
+pour i allant dee 1 à (n-1) faire
+	min <- i
+	pour j allant de (i+1) à n faire
+		si (T(j) < T(min)) alors
+			min <- j
+		fin si 
+	fin pour
+	temp <- T(i)
+ 	T(i) <- T(min)
+	T(min) <- temp
+ecrire(" le tableau trier :",T[i])
+fin pour
+
+	d <-1
+	f <- N
+	repeter
+		mil <- (d + f) div 2
+		Si (x < T(mil))	alors f <- mil – 1
+				sinon d <- mil +1
+		Fin Si
+	jusqu’à (x=T(mil)) ou (d > f)
+	si (x=T(mil))  	alors ecrire ("existe dans T",x)
+         			sinon  ecrire ("inexistant dans T",x)
+	fin si
+fin
+
+
+
+// QUESTION 2
+
+
+algorithme matrice
+const Nmax=100
+type
+Mat = Tableau [1..Nmax, 1..Nmax] de caracteres
+Tab = Tableau [1..1000] de caracteres
+var
+mch : mat 
+t : tab
+i, j, k : entier
+temp : entier
+
+debut
+	repeter
+	lire(n)
+	jusqu'à (1 < n < Nmax)
+	pour i allant de 1 à n faire
+		pour j allant de 1 à n faire
+			lire(mch[i][j])
+		fin pour
+	fin pour
+
+	k=0;
+	pour i allant de 1 à n faire
+		pour j allant de 1 à n faire
+			k=k+1
+			t[k]=mch[i][j]
+		fin pour
+	fin pour
+
+	pour i allant de 2 à n*n faire
+		temp=t[i]
+		j=i-1
+		tant que (j >= 1) et (t[j] > temp)
+		faire
+			t[j+1]=t[j]
+			j=j-1
+		fin tant que
+	fin pour
+
+	k=0;
+	pour i allant de 1 à faire
+		pour i allant de 1 à n faire
+			k=k+1
+			mch=[i][j]=t[k]
+		fin pour
+	fin pour
+fin	
+
+
+

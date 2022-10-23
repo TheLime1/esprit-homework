@@ -1,0 +1,30 @@
+chapitre6
+
+Algorithme exercice1
+
+Type
+    ch=chaine[20]
+Variable
+    str,mr=ch
+Debut
+ecrire("ecrire chaine")
+lire(str)
+pour i de 1 a n faire:
+    mr(i)<<<<<ch[LONG(CH)-1+1]
+fin pour
+ecrire("mr")
+
+
+Algorithme exercice3
+Type
+    ch=chaine[20]
+Variable
+    str,cha=cha
+Debut
+ecrire("ecrire
+
+Algorithme exercice3
+Type 
+    
+
+
