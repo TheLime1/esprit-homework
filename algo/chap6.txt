@@ -3,28 +3,146 @@ chapitre6
 Algorithme exercice1
 
 Type
-    ch=chaine[20]
+    ch:chaine[20]
 Variable
-    str,mr=ch
+    str,mr:ch
 Debut
 ecrire("ecrire chaine")
 lire(str)
 pour i de 1 a n faire:
     mr(i)<<<<<ch[LONG(CH)-1+1]
 fin pour
-ecrire("mr")
+fin
 
+Algorithme exercice2
+Type
+    ch:chaine[99]
+Variable
+    str:ch
+    let:char
+    num,i:entier
+Debut
+num<<<<<0
+ecrire("ecrire chaine")
+lire(str)
+ecrire("ecrire letttre")
+lire(let)
+pour i de 1 allant a long(str) faire:
+    si let==ch[i] alors:
+        num<<<<<num+1
+    fin si
+fin pour
+ecrire ("nombre de occurence du" let,"=",num)
+fin 
 
 Algorithme exercice3
 Type
-    ch=chaine[20]
+    ch:chaine[99]
 Variable
-    str,cha=cha
+    str,o,final:ch
+    i,j:entier
 Debut
-ecrire("ecrire
+o<<<<<aeiouy
+ecrire("ecrire chaine")
+lire(str)
+pour i de 1 allant a long(str) faire:
+    pour j de 1 allant a long(o) faire:
+        si o[j]!=str[i] alors:
+            final<<<<final+str[i]
+        fin si
+    fin pour
+fin pour
+ecrire(final)
+fin
 
-Algorithme exercice3
-Type 
-    
+Algorithme exercice4
+Type
+    ch:chaine[99]
+Variable
+    str,o,up,down:ch
+    i,j,downN,upN,oN:entier
+Debut
+oN<<<<<0
+downN<<<<<0
+upN<<<<<0
+o<<<<<aeiouy
+up<<<<AZERTYUIOPQSDFGHJKLMWXCVBN
+down<<<<azertyuiopqsdfghjklmwxcvbn
+ecrire("ecrire chaine")
+lire(str)
+pour i de 1 allant a 26 faire:
+    pour j de 1 allant a long(o) faire:
+        si o[j]==str[i] alors:
+            oN<<<<oN+1
+        fin si
+    si up[j]==str[i] alors:
+            upN<<<<<<upN+1
+        fin si
+    si downN[j]==str[i] alors:
+            downN<<<<<<<downN+1
+        fin si
+    fin pour
+fin pour
+ecrire("nombre de MAJ: ",upN)
+ecrire("nombre de MIN: ",downN)
+ecrires("nombre de voyel: ",oN)
+fin
+
+Algorithme exercice5
+Type
+    ch:chaine[99]
+Variable
+    str:ch
+    p,s:char
+    pN,sN,i:entier
+Debut
+pN<<<<<"0"
+sN<<<<<"0"
+ecrire("ecrire chaine")
+lire(str)
+pour i de 1 allant a long(str) faire:
+    si str[i]=="." alors:
+        pN<<<<<pN+1
+    fin si
+    si str[i]==" " alors:
+        sN <<<<<sN+1
+    fin 
+fin pour
+ecrire("nombre de mots: ",sN)
+ecrire("nombre de phrases: ",pN)
+ecrires("nombre de charachters: ",long(str))
+fin
+
+exercice6????
+
+exercice7:
+Type
+    ch:chaine[99]
+Variable
+    str,rech,test:ch
+    num,i,j,check:entier
+Debut
+num<<<<<0
+ecrire("ecrire chaine")
+lire(str)
+ecrire("ecrire mot a recherche")
+lire(rech)
+pour i de 1 allant a n faire:
+    check<<<0
+    test<<<<sous_chaine(str,i,long(rech))
+    pour j de 1 allant a long(rech) faire:
+        si rech[j]!=str[i] alors:
+            check<<<<1
+        fin si
+        si check==0 alors:
+            num<<<<<num+1
+        fin si
+    fin pour
+fin pour
+ecrire ("nombre de occurence du" rech,"=",num)
+fin 
+
+
+
 
 
