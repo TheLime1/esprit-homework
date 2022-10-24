@@ -1,7 +1,7 @@
 #include <stdio.h>
 main()
 {
-    char ch[99],reversed[99] ;
+    char ch[99], reversed[99];
     int i, total = 0;
     printf("The string is: ");
     gets(ch);
@@ -11,9 +11,7 @@ main()
     }
     printf("length: %d", total);
 
-    for ( i = total; i > total; i--)
+    for (i = total; i > total; i--)
     {
-        
     }
-    
 }
