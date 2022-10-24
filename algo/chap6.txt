@@ -127,7 +127,7 @@ ecrire("ecrire chaine")
 lire(str)
 ecrire("ecrire mot a recherche")
 lire(rech)
-pour i de 1 allant a n faire:
+pour i de 1 allant a long(str) faire:
     check<<<0
     test<<<<sous_chaine(str,i,long(rech))
     pour j de 1 allant a long(rech) faire:
