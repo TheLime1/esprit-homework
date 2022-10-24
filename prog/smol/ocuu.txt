@@ -1,0 +1,25 @@
+//supprimer un seul occurence
+scanf("%d",&val);
+for(i=0;i<n;i++)s
+   if (t[i]==val)
+{ for(j=0;j<n;j++) 
+    t[j]=t[i+1];
+      n-- ;
+      i-- ;
+}
+
+
+//supprimùer toute les occurence
+test=0
+i=0
+scanf("%d",&val);
+while (test==o && i<n)
+{if t[i]!=val
+else 
+    {for(j=i;j<n;j++){
+                      t[j]=t[j+1];
+                        test =1 ;
+                         n--  }
+    }
+}
+
