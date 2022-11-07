@@ -13,7 +13,7 @@ typedef struct
 
 void main()
 {
-    int i, choix, total, facture = 0, ID, choix3;
+    int i, choix, total, facture = 0, ID, choix3, cin;
     int n = 0;
     participant p[100];
     do
@@ -241,6 +241,26 @@ void main()
                             break;
                         }
                     }
+                }
+
+            case 4:
+                printf("donner ID de la participant\n");
+                scanf("%d", &ID);
+                facture = 0;
+                for (i = 0; i < n; i++)
+                {
+                    if (p[i].id == ID)
+                    {
+                        p[i].id = "\0";
+                        p[i].nom = "\0";
+                        p[i].prenom = "\0";
+                        p[i].repas = "\0";
+                        p[i].hotel = "\0";
+                    }
+                }
+                else
+                {
+                    printf("il nya pas");
                 }
 
             default:

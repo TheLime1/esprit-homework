@@ -34,7 +34,7 @@ Type
     fin enregistrement
 
 variable
-DTdate
+DT:date
 Debut
 pour i de 1 allant a 2 faire:
     ecrire("saisir D",i)
@@ -129,7 +129,57 @@ fin enregistrement
 variable
 t:identite
 i:entier
+id:identite
+adr:addresse
+datns:date_naissance
+choix:entier
+
 Debut
+lire(id.nom)
+lire(id.prenom)
+lire(id.ds.jour)
+lire(id.ds.mois)
+lire(id.ds.anne)
+lire(id.ls)
+lire(id.etat)
+lire(id.num_enf)
+lire(id.nationalite)
+lire(id.addresse.avenue)
+lire(id.addresse.ville)
+lire(id.addresse.pays)
+lire(id.addresse.numero)
+lire(id.addresse.codepostal)
+lire(id.addresse.telephone)
+lire(id.diplome)
+
+
+ecrire(id.nom)
+ecrire(id.prenom)
+ecrire(id.ds.jour)
+ecrire(id.ds.mois)
+ecrire(id.ds.anne)
+ecrire(id.ls)
+ecrire(id.etat)
+ecrire(id.num_enf)
+ecrire(id.nationalite)
+ecrire(id.addresse.avenue)
+ecrire(id.addresse.ville)
+ecrire(id.addresse.pays)
+ecrire(id.addresse.numero)
+ecrire(id.addresse.codepostal)
+ecrire(id.addresse.telephone)
+ecrire(id.diplome)
+
+ecrires("tu veux changer ladrres 1:Oui 2:Non")
+lire(choix)
+si choix==1 faire:
+    lire(id.addresse.avenue)
+    lire(id.addresse.ville)
+    lire(id.addresse.pays)
+    lire(id.addresse.numero)
+    lire(id.addresse.codepostal)
+    lire(id.addresse.telephone)
+fin si
 
 
 
