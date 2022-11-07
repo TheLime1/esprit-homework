@@ -1,0 +1,142 @@
+algorithme exercice 1
+Type
+    Voiture:enregistrement
+        matricule:chaine[20]
+        marque:chaine[20]
+        couleur:chaine[20]
+        ty:chaine[20]
+    fin enregistrement
+
+variable
+V:Voiture
+
+Debut
+lire(V.matricule)
+lire(V.marque)
+lire(V.couleur)
+lire(V.ty)
+
+ecrire(V.matricule)
+ecrire(V.marque)
+ecrire(V.couleur)
+ecrire(V.ty)
+
+fin
+
+
+
+algorithme exercice 2
+Type
+    Tdate:enregistrement
+        jj:entier
+        mm:entier
+        AA:entier
+    fin enregistrement
+
+variable
+DTdate
+Debut
+pour i de 1 allant a 2 faire:
+    ecrire("saisir D",i)
+    lire(D[i].jj)
+    lire(D[i].mm)
+    lire(D[i].AA)
+fin pour
+
+pour i de 1 allant a 2 faire:
+    ecrire("saisir D",i)
+    ecrire(D[i].jj)
+    ecrire(D[i].mm)
+    ecrire(D[i].AA)
+fin pour
+
+si(D[1].AA>D[2].AA) faire:
+    ecrire("first date is newer")
+sinon si(D[1].AA<D[2].AA) faire:
+        ecrire("second date is newer")
+sinon faire:
+    si(D[1].mm>D[2].mm) faire:
+        ecrire("first date is newer")
+    sinon si(D[1].mm<D[2]) faire:
+        ecrire ("second date is newer")
+    sinon faire:
+        si(D[1].jj>D[2].jj) faire:
+            ecrire("first date is newer")
+        sinon si (D[1].jj<D[2].jj) faire:
+            ecrire("second date is newer")
+        sinon faire:
+            ecrire("the two dtes are the same")
+        fin si
+    fin si
+fin si
+
+algorithme exercice 3
+Type:
+complexe:enregistrement
+    r:reel
+    img:entier
+fin enregistrement
+variable:
+C:complexe
+C1:complexe
+rsomm,isomm,produit,iproduit
+Debut:
+lire(C.r)
+lire(C.img)
+
+lire(C1.r)
+lire(C1.img)
+
+rsomm<<<<<C.r+C1.r
+isomm<<<<<C.img+C1.img
+
+produit<=C.r*C1.r+(-1)*C.img*C1.img
+iproduit<=C.r*C1.img+C1.r*C.img
+
+algorithme exercice 4
+Type
+date_naissance:enregistrement
+    jour:chaine[20]
+    mois:chaine[20]
+    anne:chaine[20]
+fin enregistrement
+lieu_naissance:enregistrement
+    ville:chaine[20]
+    province:chaine[20]
+    pays:chaine[20]
+fin enregistrement
+addresse:enregistrement
+    avenue:chaine[20]
+    ville:chaine[20]
+    pays:chaine[20]
+    numero:chaine[20]
+    codepostal:chaine[20]
+    telephone:chaine[20]
+fin enregistrement
+
+identite:enregistrement
+    nom:chaine[20]
+    prenom:chaine[20]
+    ds:date_naissance
+    ls:chaine[20]
+    etat:boolean
+    num_enf:entier
+    nationalite:chaine[20]
+    adr:addresse
+    diplome:chaine[20]
+fin enregistrement
+
+variable
+t:identite
+i:entier
+Debut
+
+
+
+
+
+
+
+
+
+
