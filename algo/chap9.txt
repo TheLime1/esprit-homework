@@ -11,3 +11,26 @@ fin tant que
 ecrire(a,"div",b,"=",div)
 ecrire(a,"mod",b=,"=",mod)
 fin
+
+fonction parfait(x:entier);boolean
+variable
+    i,s;entier
+debut
+pour i allant de a (x div 2) faire :
+    si (x mod i = 0) alors
+        s<<<<s+1
+    fi sin
+fin pour
+si(s=x)alors:
+    parfait<<<<vrai
+sinon:
+ parfait<<<<faux
+ fin si
+
+
+
+
+
+
+
+
