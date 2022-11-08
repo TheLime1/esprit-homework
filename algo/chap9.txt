@@ -1,0 +1,13 @@
+Procedure DivMod(a:entier,b:entier)
+variable
+    div,mod,a;entier
+debut
+div<<<<0
+mod<<<<a
+tant que (mod>=b)
+    mod<<<<mod-b
+    div<<<<div+1
+fin tant que
+ecrire(a,"div",b,"=",div)
+ecrire(a,"mod",b=,"=",mod)
+fin
