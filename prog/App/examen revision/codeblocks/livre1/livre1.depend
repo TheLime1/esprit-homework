@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1671118732 source:c:\users\everp\desktop\esprit\prog\app\examen revision\codeblocks\livre1\livre.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"livre.h"
+
+1671118599 c:\users\everp\desktop\esprit\prog\app\examen revision\codeblocks\livre1\livre.h
+
+1671118155 source:c:\users\everp\desktop\esprit\prog\app\examen revision\codeblocks\livre1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"livre.h"
+

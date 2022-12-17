@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1669904325 source:c:\users\everp\desktop\esprit\prog\app\chap12\codeblock\machinpann.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"machinpann.h"
+
+1669904214 c:\users\everp\desktop\esprit\prog\app\chap12\codeblock\machinpann.h
+
+1669904163 source:c:\users\everp\desktop\esprit\prog\app\chap12\codeblock\main.c
+	<stdio.h>
+	<stdlib.h>
+	"machinpann.h"
+

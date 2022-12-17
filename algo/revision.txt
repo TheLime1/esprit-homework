@@ -1,0 +1,4 @@
+Clent=enregistrement
+identifiant:entier
+nom:chaine[99]
+prenom:chaine[99]
