@@ -1,0 +1,240 @@
+Algorithme exercice1
+Debut
+procedure remplir(T: tableau de 100 entiers)
+  pour i allant de 1 à 100 faire
+    ecrire("Entrez un entier pour l'emplacement ", i, " :")
+    lire(T[i])
+  fin pour
+fin procedure
+
+fonction existe(T: tableau de 100 entiers, valeur: entier) : entier
+  pour i allant de 1 à 100 faire
+    si T[i] = valeur alors
+      retourner i
+    fin si
+  fin pour
+  retourner 0
+fin fonction
+
+procedure remplacer(T: tableau de 100 entiers, valeur: entier, nouvelle_valeur: entier)
+  position <- existe(T, valeur)
+  si position > 0 alors
+    T[position] <- nouvelle_valeur
+  fin si
+fin procedure
+
+var T: tableau de 100 entiers
+
+remplir(T)
+
+ecrire("Entrez la valeur à remplacer :")
+lire(valeur)
+
+ecrire("Entrez la nouvelle valeur :")
+lire(nouvelle_valeur)
+
+remplacer(T, valeur, nouvelle_valeur)
+Fin
+
+
+
+
+
+
+Algorithme exercice2
+Debut
+fonction est_separateur(d: caractere) : booleen
+  // retourne vrai si d est un séparateur, faux sinon
+  si d = ' ' ou d = '.' ou d = ',' ou d = '#' alors
+    retourner vrai
+  sinon
+    retourner faux
+  fin si
+fin fonction
+
+fonction est_lettre(d: caractere) : booleen
+  // retourne vrai si d est une lettre, faux sinon
+  si (d >= 'a' et d <= 'z') ou (d >= 'A' et d <= 'Z') alors
+    retourner vrai
+  sinon
+    retourner faux
+  fin si
+fin fonction
+
+fonction est_chiffre(d: caractere) : booleen
+  // retourne vrai si d est un chiffre, faux sinon
+  si d >= '0' et d <= '9' alors
+    retourner vrai
+  sinon
+    retourner faux
+  fin si
+fin fonction
+
+// programme principal
+var d: caractere
+var mot: chaine
+var nb_lettres, nb_mots, longueur_max: entier
+
+nb_lettres <- 0
+nb_mots <- 0
+longueur_max <- 0
+mot <- ""
+
+ecrire("Entrez une phrase (terminée par #) :")
+lire(d)
+
+tant que d != '#' faire
+  si est_separateur(d) alors
+    si longueur(mot) > longueur_max alors
+      longueur_max <- longueur(mot)
+    fin si
+    mot <- ""
+  sinon
+    si est_lettre(d) alors
+      nb_lettres <- nb_lettres + 1
+    fin si
+    mot <- mot + d
+  fin si
+  lire(d)
+fin tant que
+
+ecrire("Le nombre de lettres est : ", nb_lettres)
+ecrire("Le nombre de mots est : ", nb_mots)
+ecrire("La longueur du plus long mot est : ", longueur_max)
+Fin
+
+
+Debut Algorithme Exercice3
+Debut
+// fonction min
+fonction min(x, y: entier) : entier
+  // retourne le minimum de x et y
+  si x < y alors
+    retourner x
+  sinon
+    retourner y
+  fin si
+fin fonction
+
+// fonction recherche
+fonction recherche(Mat: matrice d'entiers, n, m, c: entier) : entier
+  // retourne le minimum d'une colonne c de la matrice Mat de taille n x m
+  min <- Mat[1][c]
+  pour i allant de 1 à n faire
+    min <- min(min, Mat[i][c])
+  fin pour
+  retourner min
+fin fonction
+
+// fonction Premier
+fonction Premier(n: entier) : booleen
+  // retourne vrai si n est premier, faux sinon
+  si n <= 1 alors
+    retourner faux
+  fin si
+  pour i allant de 2 à racine carree de n faire
+    si n modulo i = 0 alors
+      retourner faux
+    fin si
+  fin pour
+  retourner vrai
+fin fonction
+
+// procédure EcriV
+procedure EcriV(V: vecteur d'entiers, n: entier)
+  // affiche les éléments d'un vecteur V d'entiers de taille n
+  pour i allant de 1 à n faire
+    ecrire(V[i], " ")
+  fin pour
+  ecrire("\n")
+fin procedure
+
+// procédure LireM
+procedure LireM(Mat: matrice d'entiers, n, m: entier)
+  // lit les éléments d'une matrice Mat d'entiers de taille n x m
+  pour i allant de 1 à n faire
+    pour j allant de 1 à m faire
+      ecrire("Entrez l'élément [", i, "][", j, "] :")
+      lire(Mat[i][j])
+    fin pour
+  fin pour
+fin procedure
+
+// procédure Mincol
+procedure Mincol(Mat: matrice d'entiers, n, m: entier, V: vecteur d'entiers)
+  // remplit V avec le minimum de chaque colonne de la matrice Mat de taille n x m
+  pour j allant de 1 à m faire
+    V[j] <- recherche(Mat, n, m, j)
+  fin pour
+fin procedure
+
+
+Fin
+
+Algorithme Exercice4
+Debut
+Type Fournisseur
+   nom : Chaîne
+   id : Entier
+   produits : Tableau[0..9] de Produit
+Fin Type
+
+Type Produit
+   code : Entier
+   quantite : Entier
+   prix_unitaire : Réel
+   livre : Booléen
+Fin Type
+
+Fonction chercher_fournisseur(id : Entier, fournisseurs : Tableau de Fournisseur) : Entier
+   Var position : Entier
+   Pour i : Entier <- 0 à Taille(fournisseurs)-1 Faire
+      Si fournisseurs[i].id = id Alors
+         position <- i
+         Sortir
+      Fin Si
+   Fin Pour
+   Retourner position
+Fin Fonction
+
+Procédure ajouter_fournisseur(fournisseur : Fournisseur, fournisseurs : Tableau de Fournisseur)
+   fournisseurs <- fournisseurs + fournisseur
+   Pour i : Entier <- 0 à Taille(fournisseur.produits)-1 Faire
+      fournisseur.produits[i].code <- 0
+   Fin Pour
+Fin Procédure
+
+Fonction saisir_produit(fournisseurs : Tableau de Fournisseur) : Produit
+   Var produit : Produit
+   Saisir produit.code
+   Si produit_existe(produit.code, fournisseurs) Alors
+      Ecrire "Le code de produit existe déjà"
+      Retourner saisir_produit(fournisseurs)
+   Sinon
+      Saisir produit.quantite
+      Saisir produit.prix_unitaire
+      produit.livre <- False
+      Retourner produit
+   Fin Si
+Fin Fonction
+
+Fonction produit_existe(code : Entier, fournisseurs : Tableau de Fournisseur) : Booléen
+   Pour i : Entier <- 0 à Taille(fournisseurs)-1 Faire
+      Pour j : Entier <- 0 à Taille(fournisseurs[i].produits)-1 Faire
+         Si fournisseurs[i].produits[j].code = code Alors
+            Retourner Vrai
+         Fin Si
+      Fin Pour
+   Fin Pour
+   Retourner Faux
+Fin Fonction
+
+Procédure affecter_produit(produit : Produit, id_fournisseur : Entier, fournisseurs : Tableau de Fournisseur)
+   Var position : Entier
+   position <- chercher_fournisseur(id_fournisseur, fournisseurs)
+   Si position <> 0 Alors
+      Pour i : Entier <- 0 à Taille(fournisseurs[position].produits)-1 Faire
+         Si fournisseurs[position].produits[i].code = 0 Alors
+            fournisseurs[position].produits[i] <- produit
+
+fin

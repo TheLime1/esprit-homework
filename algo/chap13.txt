@@ -1,0 +1,215 @@
+Pays  | Région  | Pourcentage d’utilisateurs
+Algérie | Afrique du nord | 18.09
+Tunisie | Afrique du nord | 46.16
+Angola | Afrique subsaharienne | 21.06
+Canada | Amérique du nord | 87.75
+Mexique | Amérique latine | 44.39
+Allemagne | Europe de l’ouest | 86.19
+
+1)
+Type Etude
+   nom : Chaine[30]
+   annee : Entier
+   tab_stat : *Statistique
+Fin Type
+
+Variable tab_etude : *Etude
+
+2)
+Procédure Permut(tab : *Statistique, i, j : Entier)
+   Variable:
+      temp_pays, temp_region : Chaine[30]
+      temp_pourcentage : Réel
+   Début
+   // Permutation des rubriques des enregistrements i et j
+   temp_pays <- tab[i].pays
+   temp_region <- tab[i].region
+   temp_pourcentage <- tab[i].pourcentage
+   tab[i].pays <- tab[j].pays
+   tab[i].region <- tab[j].region
+   tab[i].pourcentage <- tab[j].pourcentage
+   tab[j].pays <- temp_pays
+   tab[j].region <- temp_region
+   tab[j].pourcentage <- temp_pourcentage
+Fin Procédure
+
+3)
+Fonction RemplissageInternet() : *Statistique
+   // Déclaration des variables
+   Variable:
+      tab : *Statistique
+      n, i : Entier
+   Début
+   // Saisie du nombre de pays
+   Ecrire("Combien de pays souhaitez-vous saisir ?")
+   Lire(n)
+
+   // Allocation de la mémoire pour le tableau
+   tab <- Allouer(n)
+
+   // Saisie des données pour chaque pays
+   Pour i de 0 à n-1 Faire
+      Ecrire("Saisie des données pour le pays ", i+1, " :")
+      Ecrire("Nom du pays :")
+      Lire(tab[i].pays)
+      Ecrire("Région :")
+      Lire(tab[i].region)
+      Ecrire("Pourcentage d'utilisateurs d'internet :")
+      Lire(tab[i].pourcentage)
+   Fin Pour
+
+   // Retour du pointeur sur le tableau
+   RemplissageInternet <- tab
+Fin Fonction
+
+4)
+Fonction InternetMax(tab : *Statistique, n : Entier) : Réel
+   // Déclaration des variables
+   Variable:
+      max : Réel
+      i : Entier
+   Début
+   // Initialisation de la valeur maximale
+   max <- tab[0].pourcentage
+
+   // Recherche du pourcentage d'utilisateurs d'internet le plus élevé
+   Pour i de 1 à n-1 Faire
+      Si tab[i].pourcentage > max Alors
+         max <- tab[i].pourcentage
+      Fin Si
+   Fin Pour
+
+   // Retour du pourcentage d'utilisateurs d'internet le plus élevé
+   InternetMax <- max
+Fin Fonction
+
+5)
+a.
+Module TriRegion(tab : *Statistique, n : Entier)
+   // Déclaration des variables
+   Variable:
+      i, j, min : Entier
+      tmp : Statistique
+   Début
+   // Tri du tableau par sélection
+   Pour i de 0 à n-2 Faire
+      // Recherche de l'enregistrement de région la plus petite
+      min <- i
+      Pour j de i+1 à n-1 Faire
+         Si tab[j].region < tab[min].region Alors
+            min <- j
+         Fin Si
+      Fin Pour
+
+      // Permutation des enregistrements s'ils ne sont pas déjà triés
+      Si min != i Alors
+         tmp <- tab[i]
+         tab[i] <- tab[min]
+         tab[min] <- tmp
+      Fin Si
+   Fin Pour
+Fin Module
+
+b.O(n^2)
+
+6)
+
+Structure StatistiqueParRegion
+   Variable:
+      region : Chaine[20]
+      pourcentageMoyen : Réel
+Fin Structure
+
+Procédure Pourcentage(tab : *Statistique, n : Entier, tabRegion : *StatistiqueParRegion)
+   // Déclaration des variables
+   Variable:
+      i, j : Entier
+      trouve : Booléen
+   Début
+   // Initialisation du tableau tabRegion
+   nbRegion <- 0
+   // Recherche du pourcentage moyen d'utilisateurs d'internet pour chaque région
+   Pour i de 0 à n-1 Faire
+      trouve <- Faux
+      // Recherche de la région dans le tableau tabRegion
+      Pour j de 0 à nbRegion-1 Faire
+         Si tab[i].region = tabRegion[j].region Alors
+            trouve <- Vrai
+            // Mise à jour du pourcentage moyen d'utilisateurs d'internet
+            tabRegion[j].pourcentageMoyen <- tabRegion[j].pourcentageMoyen + tab[i].pourcentage
+            Sortir
+         Fin Si
+      Fin Pour
+
+      // Si la région n'a pas été trouvée, ajout d'un nouvel enregistrement
+      Si !trouve Alors
+         nbRegion <- nbRegion + 1
+         tabRegion[nbRegion-1].region <- tab[i].region
+         tabRegion[nbRegion-1].pourcentageMoyen <- tab[i].pourcentage
+      Fin Si
+   Fin Pour
+
+   // Calcul du pourcentage moyen d'utilisateurs d'internet par région
+   Pour i de 0 à nbRegion-1 Faire
+      tabRegion[i].pourcentageMoyen <- tabRegion[i].pourcentageMoyen / nbPays[i]
+   Fin Pour
+
+   // Tri du tableau tabRegion par ordre alphabétique croissant
+   TriRegion(tabRegion, nbRegion)
+Fin Procédure
+
+7)
+
+Procédure Top5_internet(tab : *Statistique, n : Entier)
+   // Déclaration des variables
+   Variable:
+      i, j : Entier
+      trouve : Booléen
+   Début
+   // Tri du tableau tab par ordre décroissant de pourcentage d'utilisateurs d'internet
+   Pour i de 0 à n-1 Faire
+      Pour j de i+1 à n-1 Faire
+         Si tab[j].pourcentage > tab[i].pourcentage Alors
+            Permut(tab[i], tab[j])
+         Fin Si
+      Fin Pour
+   Fin Pour
+
+   // Affichage des 5 pays les plus connectés
+   Pour i de 0 à 4 Faire
+      Écrire(tab[i].pays, tab[i].pourcentage)
+   Fin Pour
+Fin Procédure
+
+
+
+8)
+
+Algorithme principal
+   // Déclaration des variables
+   Variable:
+      tab : *Statistique
+      n, i : Entier
+      max, moyenne : Réel
+      top5 : Tab-5[Chaîne[20]]
+   Début
+   // Remplissage du tableau tab
+   tab, n ← RemplissageInternet()
+
+   // Affichage du pays ayant le pourcentage le plus élevé
+   max ← InternetMax(tab, n)
+   Pour i de 0 à n-1 Faire
+      Si tab[i].pourcentage = max Alors
+         Écrire(tab[i].pays, tab[i].pourcentage)
+      Fin Si
+   Fin Pour
+
+   // Calcul et affichage du pourcentage moyen d'utilisateurs d'internet par région
+   Pourcentage(tab, n, moyenne)
+   Écrire(moyenne)
+
+   // Tri du tableau tab par ordre décroissant de pourcentage d'utilisateurs d'internet
+   TriRegion(tab, n)
+   // Affichage du top5 des pays les plus connectés
+   Top5_internet(tab, n)
+Fin

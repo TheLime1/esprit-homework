@@ -1,0 +1,97 @@
+Exercice1
+A = -8
+B = 12
+C = 3
+
+Exercice2
+A = 104
+B = 10
+C = 70
+
+exercice5
+
+Algorithme ajouter_tableaux
+   // Déclaration des variables
+   Var A, B : Tableau de Entier
+   Var N, M : Entier
+   Var i : Entier
+
+   // Lecture des tableaux et de leurs dimensions
+   Saisir N
+   Pour i : Entier <- 0 à N-1 Faire
+      Saisir A[i]
+   Fin Pour
+   Saisir M
+   Pour i : Entier <- 0 à M-1 Faire
+      Saisir B[i]
+   Fin Pour
+
+   // Ajout des éléments de B à la fin de A
+   Pour i : Entier <- 0 à M-1 Faire
+      A[N+i] <- B[i]
+   Fin Pour
+
+   // Affichage du nouveau tableau A
+   Pour i : Entier <- 0 à N+M-1 Faire
+      Ecrire A[i]
+   Fin Pour
+Fin Algorithme
+
+Exercice6:
+Fonction somme_tableau(T : *Tableau de Entier, n : Entier) : Entier
+   // Déclaration de la variable somme
+   Var somme : Entier
+
+   // Initialisation de la variable somme
+   somme <- 0
+
+   // Calcul de la somme des éléments du tableau
+   Pour i : Entier <- 0 à n-1 Faire
+      somme <- somme + T[i]
+   Fin Pour
+
+   // Retour de la somme
+   Retourner somme
+Fin Fonction
+
+Variable T : Tableau[10] de Entier
+
+Ecrire somme_tableau(&T, 10)
+
+exercice7
+Algorithme inverse_tableau
+   // Déclaration des variables
+   Variable:
+      A : Tableau[10] de Entier
+      P1, P2 : *Entier
+      aux : Entier
+      i : Entier
+
+   // Initialisation du tableau A
+   Pour i : Entier <- 0 à Taille(A)-1 Faire
+      A[i] <- i+1
+   Fin Pour
+
+   // Affichage du contenu du tableau A avant l'inversion
+   Écrire "Tableau A avant l'inversion :"
+   Pour i : Entier <- 0 à Taille(A)-1 Faire
+      Ecrire A[i]
+   Fin Pour
+
+   // Inversion du tableau A
+   P1 <- &A[0]
+   P2 <- &A[Taille(A)-1]
+   Pour i : Entier <- 0 à Taille(A) div 2 - 1 Faire
+      aux <- *P1
+      *P1 <- *P2
+      *P2 <- aux
+      P1 <- P1 + 1
+      P2 <- P2 - 1
+   Fin Pour
+
+   // Affichage du contenu du tableau A après l'inversion
+   Écrire "Tableau A après l'inversion :"
+   Pour i : Entier <- 0 à Taille(A)-1 Faire
+      Ecrire A[i]
+   Fin Pour
+Fin Algorithme

@@ -1,0 +1,136 @@
+Type Contact
+   nom : Chaine[20]
+   longueur : Entier
+   numero : Tableau de Entier
+Fin Type
+
+// Fonction SaisirContact : permet de saisir un contact
+Fonction SaisirContact : Contact
+   Variable C : Contact
+
+   // Saisie du nom du contact
+   Saisir C.nom
+
+   // Saisie de la longueur du numéro de téléphone
+   Saisir C.longueur
+
+   // Saisie du numéro de téléphone
+   Pour i : Entier <- 0 à C.longueur-1 Faire
+      Saisir C.numero[i]
+   Fin Pour
+
+   // Retour du contact saisi
+   Retourner C
+Fin Fonction
+
+// Procédure afficherContact : permet d'afficher un contact
+Procédure afficherContact(C : Contact)
+   // Affichage du nom du contact
+   Écrire "Nom : ", C.nom
+
+   // Affichage du numéro de téléphone
+   Écrire "Numéro : ",
+   Pour i : Entier <- 0 à C.longueur-1 Faire
+      Écrire C.numero[i]
+   Fin Pour
+Fin Procédure
+
+Fonction RemplirRepertoire(n : Entier) : *Contact
+   // Déclaration du tableau dynamique de contacts
+   Variable Tab_C : *Contact
+
+   // Allocation mémoire du tableau dynamique
+   Allouer(Tab_C, n)
+
+   // Remplissage du répertoire
+   Pour i : Entier <- 0 à n-1 Faire
+      Tab_C[i] <- SaisirContact()
+   Fin Pour
+
+   // Retour du répertoire rempli
+   Retourner Tab_C
+Fin Fonction
+
+// Procédure ListeContacts : permet d'afficher la liste des contacts d'un répertoire
+Procédure ListeContacts(Tab_C : *Contact, n : Entier)
+   // Affichage des contacts du répertoire
+   Pour i : Entier <- 0 à n-1 Faire
+      afficherContact(Tab_C[i])
+   Fin Pour
+Fin Proc
+
+Fonction ChercherContact(Tab_C : *Contact, n : Entier, nom : Chaine[20]) : Entier
+   // Recherche du contact
+   Pour i : Entier <- 0 à n-1 Faire
+      Si (Tab_C[i].nom = nom) Alors
+         // Le contact a été trouvé, on renvoie sa position
+         Retourner i
+      Fin Si
+   Fin Pour
+
+   // Le contact n'a pas été trouvé, on renvoie -1
+   Retourner -1
+Fin Fonction
+
+// Procédure SupprimerContact : permet de supprimer un contact d'un répertoire
+Procédure SupprimerContact(Tab_C : *Contact, n : *Entier, C : Contact)
+   // Recherche de la position du contact à supprimer
+   Variable pos : Entier <- ChercherContact(Tab_C, *n, C.nom)
+
+   // Si le contact a été trouvé
+   Si (pos >= 0) Alors
+      // On décale les éléments suivants pour tasser le tableau
+      Pour i : Entier <- pos à *n-2 Faire
+         Tab_C[i] <- Tab_C[i+1]
+      Fin Pour
+
+      // On décrémente la taille du tableau
+      *n <- *n - 1
+   Fin Si
+Fin Procédure
+//PP
+Début
+   // Déclaration des variables
+   Variable Tab_C : *Contact
+   Variable n, choix : Entier
+   Variable C : Contact
+
+   // Remplissage du répertoire
+   Écrire "Combien de contacts souhaitez-vous ajouter au répertoire ?"
+   Saisir n
+   Tab_C <- RemplirRepertoire(n)
+
+   // Affichage du menu
+   Répéter
+      Écrire "1. Afficher la liste des contacts"
+      Écrire "2. Chercher un contact"
+      Écrire "3. Supprimer un contact"
+      Écrire "4. Quitter"
+      Saisir choix
+
+      Selon choix
+         Cas 1:
+            // Afficher la liste des contacts
+            ListeContacts(Tab_C, n)
+         Cas 2:
+            // Chercher un contact
+            Écrire "Saisissez le nom du contact à chercher :"
+            Saisir C.nom
+            Variable pos : Entier <- ChercherContact(Tab_C, n, C.nom)
+            Si (pos >= 0) Alors
+               Écrire "Le contact a été trouvé à la position ", pos
+            Sinon
+               Écrire "Le contact n'a pas été trouvé"
+            Fin Si
+         Cas 3:
+            // Supprimer un contact
+            Écrire "Saisissez le nom du contact à supprimer :"
+            Saisir C.nom
+            SupprimerContact(Tab_C, &n, C)
+         Cas 4:
+            // Quitter l'application
+            Quitter
+      Fin Selon
+   Jusqu'à (choix = 4)
+   Fin
+Fin Algorithme
